@@ -1,0 +1,17 @@
+<h1> <%=@tenant.name%> </h1>
+<%if @tenant.apartment %>
+    <a href="/apartments/<%= @tenant.apartment.id %>">Apartment address: <%=@tenant.apartment.address%></a>
+<%else%>
+    <p>This person has no apartment!</p> 
+<%end%> 
+
+<form action="/tenants/<%=@tenant.id%>/edit" method="get" %>
+    <input type="submit" value="Edit this tenant!">
+</form> 
+
+<form action="/tenants/<%=@tenant.id%>" method="post" %>
+<input id="hidden" type="hidden" name="_method" value="delete"> 
+    <input type="submit" value="Delete this tenant!">
+</form> 
+
+<a href="/tenants">Go back to tenants</a>
